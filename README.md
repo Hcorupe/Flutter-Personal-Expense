@@ -1,5 +1,7 @@
 # flutter_expense
 
+-A Simple expense tracker-
+
 
 
 ![](repo_images/Screen1.png)
