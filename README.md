@@ -1,6 +1,6 @@
 # flutter_expense
 
--A Simple expense tracker-
+-A Simple Expense Tracker-
 
 
 
