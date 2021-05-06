@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_expense/widgets/adaptive_flat_button.dart';
 import 'package:intl/intl.dart'; // date formating
 
 class NewTransaction extends StatefulWidget {
@@ -68,6 +72,7 @@ class _NewTransactionState extends State<NewTransaction> {
               crossAxisAlignment: CrossAxisAlignment.end,
               //Sets add Transaction Button to the right
               children: <Widget>[
+                CupertinoTextField(),
                 TextField(
                   decoration: InputDecoration(labelText: 'Title'),
                   controller: _titleController,
@@ -86,19 +91,13 @@ class _NewTransactionState extends State<NewTransaction> {
                     Expanded( // Expanded used as much space as it can get. Leaving the choose date Button only enough room that it needs. Pushes choose date to the right of screen
                       child: Text(
                         _selectedDate == null
-                            ? 'No Date Chosen! '
+                            ? 'No Date Chosen!'
                             : 'Picked Date: ${DateFormat.yMd().format(_selectedDate)}',  // needed to call .format to format returned date to a string
                       ),
                     ),
-                    FlatButton(
-                      textColor: Theme.of(context).primaryColor,
-                      child: Text(
-                        'Choose Date',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      onPressed: _presentDatePicker,
-                    ),
-                  ]),
+                    AdaptiveFlatButton('choose Date', _presentDatePicker)
+                  ]
+                  ),
                 ),
                 RaisedButton(
                   child: Text('Add Transaction'),
